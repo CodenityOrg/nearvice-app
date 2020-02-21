@@ -3,5 +3,10 @@
         "id": 1,
         "name": "Cristian Peralta",
         "github": "CristianPeralta"
+    },
+    {
+        "id": 2,
+        "name": "Florencia Peretti",
+        "github": "florenperetti"
     }
 ]
