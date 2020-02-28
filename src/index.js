@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './plugins/axios'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import exampleAPI from './api/example'
+
+exampleAPI.get()
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
