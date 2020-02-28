@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import exampleAPI from './api/example'
-
-exampleAPI.get()
+import './i18n'; // usage examples https://dev.to/wingkwong/implementing-i18next-to-your-react-application-ie1
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
