@@ -1,11 +1,13 @@
 import axios from 'axios'
 
-axios.interceptors.request.use(request => {
+const axiosDefaultInstance = axios.create();
+
+axiosDefaultInstance.interceptors.request.use(request => {
   console.log('http request')
   return request
 })
 
-axios.interceptors.response.use(response => response, error => {
+axiosDefaultInstance.interceptors.response.use(response => response, error => {
   const errorResponse = error.response
 
   // fatal error
@@ -43,3 +45,5 @@ axios.interceptors.response.use(response => response, error => {
 
   return Promise.reject(error)
 })
+
+export default axiosDefaultInstance
