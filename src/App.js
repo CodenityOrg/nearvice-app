@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { useTranslation } from 'react-i18next';
 
+// Main file
+
 function App () {
   const { t } = useTranslation();
   const tMessage = t('example.nestedMessage.identifier');
