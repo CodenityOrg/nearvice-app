@@ -1,4 +1,6 @@
 import React from 'react';
+import Navbar from './components/includes/Navbar';
+import Footer from './components/includes/Footer';
 import { Switch, Route } from 'react-router-dom'
 import './App.css';
 
@@ -8,13 +10,17 @@ import NotFound from './pages/NotFound/NotFound'
 
 function App () {
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/contact" component={Contact} />
+    <div className="App">
+      <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/contact" component={Contact} />
 
-      {/* no match routes */}
-      <Route exact component={NotFound} />
-    </Switch>
+          {/* no match routes */}
+          <Route exact component={NotFound} />
+        </Switch>
+      <Footer />
+    </div>
   );
 }
 
