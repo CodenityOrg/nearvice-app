@@ -1,4 +1,6 @@
 import React from 'react';
+import styled from 'styled-components'
+
 import Navbar from './components/includes/Navbar';
 import Footer from './components/includes/Footer';
 import { Switch, Route } from 'react-router-dom'
@@ -9,8 +11,11 @@ import Contact from './pages/Contact/Contact'
 import NotFound from './pages/NotFound/NotFound'
 
 function App () {
+  const AppContainer = styled.div`
+    text-align: center;
+  `
   return (
-    <div className="App">
+    <AppContainer>
       <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -20,7 +25,7 @@ function App () {
           <Route exact component={NotFound} />
         </Switch>
       <Footer />
-    </div>
+    </AppContainer>
   );
 }
 
