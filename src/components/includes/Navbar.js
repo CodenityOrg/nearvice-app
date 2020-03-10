@@ -1,9 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-export default () => {
+class Navbar extends React.Component {
+  render() {
     return (
-        <div>
-            Navbar
-        </div>
+      <div>
+        {this.props.title}
+      </div>
     )
-};
+  }
+}
+
+Navbar.propTypes = {
+  title: PropTypes.string,
+}
+
+Navbar.defaultProps = {
+  title: 'Nearvice'
+}
+
+export default Navbar;

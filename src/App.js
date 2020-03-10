@@ -11,14 +11,14 @@ import NotFound from './pages/NotFound/NotFound'
 function App () {
   return (
     <div className="App">
-      <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/contact" component={Contact} />
+      <Navbar title={'Nearvice 0.1.0'} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/contact" component={Contact} />
 
-          {/* no match routes */}
-          <Route exact component={NotFound} />
-        </Switch>
+        {/* no match routes */}
+        <Route exact component={NotFound} />
+      </Switch>
       <Footer />
     </div>
   );
