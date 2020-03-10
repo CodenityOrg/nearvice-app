@@ -1,6 +1,9 @@
 import axios from 'axios'
+const HOST = process.env.REACT_APP_API_URL || 'http://localhost:3000'
 
-const axiosDefaultInstance = axios.create();
+const axiosDefaultInstance = axios.create({
+  baseURL: HOST
+});
 
 axiosDefaultInstance.interceptors.request.use(request => {
   console.log('http request')
@@ -8,7 +11,7 @@ axiosDefaultInstance.interceptors.request.use(request => {
 })
 
 axiosDefaultInstance.interceptors.response.use(response => response, error => {
-  const errorResponse = error.response
+  const errorResponse = error.response || error;
 
   // fatal error
   if (errorResponse.status >= 500) {
