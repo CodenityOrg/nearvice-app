@@ -13,12 +13,16 @@ export default () => {
             </Login.AdSection>
             <Login.LoginSection>
                 <Login.OAuth>
+                    <Login.OAuthButton>Log in with Facebook</Login.OAuthButton>
+                    <Login.OAuthButton>Sign in with Google</Login.OAuthButton>
                 </Login.OAuth>
                 <Login.Signin>
-                    <Login.Input />
-                    <Login.Input />
+                    <Login.Input placeholder="Email" />
+                    <Login.Input placeholder="Password" />
                 </Login.Signin>
-                <Login.Button>Login</Login.Button>
+                <Login.Button>
+                    Login
+                </Login.Button>
             </Login.LoginSection>
         </Login>
     );

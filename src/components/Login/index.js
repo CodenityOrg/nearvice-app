@@ -9,7 +9,7 @@ import Input from './Input';
 import Button from './Button';
 import Text from './Text';
 import Image from './Image';
-
+import OAuthButton from './OAuthButton';
 
 const Login = styled.div`
     display: flex;
@@ -25,5 +25,6 @@ Login.Input = Input;
 Login.Button = Button;
 Login.Text = Text;
 Login.Image = Image;
+Login.OAuthButton = OAuthButton;
 
 export default Login;

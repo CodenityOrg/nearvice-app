@@ -5,4 +5,8 @@ export default styled.div`
     height: 138px;
     background: #2993DE 0% 0% no-repeat padding-box;
     opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;

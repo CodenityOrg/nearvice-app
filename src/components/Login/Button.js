@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-import Button from '../basics/Button/index';
+import Button from '../basics/Button';
 
-export default styled(Button)`
-    margin: 36px;
+export default styled.button`
+    width: 100%;
+    height: 54px;
     background: #0073B1;
+    color: white;
+    border: none;
+    font-size: 20px;
 `;
