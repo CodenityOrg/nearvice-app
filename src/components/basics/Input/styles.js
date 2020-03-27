@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styled from 'styled-components';
 
 const baseStyles = `
@@ -10,16 +10,14 @@ const baseStyles = `
     font-size: 12px;
     font-family: Lato;
     letter-spacing: 0;
-    width: 270px;
+    padding: 0 18px;
+    width: 230px;
     height: 35px;
+    outline: none;
+    background: white;
+    border: none;
 `;
 
-const StyledInput = styled.input`${baseStyles}`;
-
-export default props => {
-    return <StyledInput 
-        {
-            ...props
-        }
-    />;
-};
+export default {
+    Input: styled.input`${baseStyles}`
+}; 

@@ -19,11 +19,10 @@ function App () {
   return (
     <AppContainer>
       <Navbar title={'Nearvice 0.1.0'} />
-      <LoginModal />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/contact" component={Contact} />
-
+        <Route exact path="/modal" component={LoginModal} />
         {/* no match routes */}
         <Route exact component={NotFound} />
       </Switch>
