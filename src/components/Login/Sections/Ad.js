@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+//TODO: Add more breakpoints for other devices
 export default styled.div`
     width: 294px;
     height: 332px;
