@@ -5,6 +5,7 @@ import Logo from './Login/logo-login.png';
 
 import Modal from 'react-modal';
 
+// TODO: Change default modal for nearvice customized modal
 export default () => {
 
     const customStyles = {
