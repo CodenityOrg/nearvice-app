@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 export default () => {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
 
-  const handleLoginClick = () => {
+  const handleLoginClick = useCallback(() => {
     setIsLoginVisible(true);
-  };
-  const handleLoginModalClose = () => {
+  }, [setIsLoginVisible]);
+
+  const handleLoginModalClose = useCallback(() => {
     setIsLoginVisible(false);
-  };
+  }, [setIsLoginVisible]);
 
   return [isLoginVisible, handleLoginClick, handleLoginModalClose ];
 };

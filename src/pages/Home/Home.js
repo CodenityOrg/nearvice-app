@@ -10,7 +10,7 @@ function Home () {
   const { t } = useTranslation();
   const tMessage = t('example.nestedMessage.identifier');
 
-  const AppHeader = styled.header`
+  const AppHeader = styled.div`
     background-color: #282c34;
     min-height: 100vh;
     display: flex;

@@ -19,10 +19,14 @@ const Navbar = styled.header`
 `;
 
 const Brand = styled(Link)`
-    font-size: 1.5rem;
+    align-items: center;
+    color: white;
+    display: flex;
+    height: 100%;
+    justify-content: center;
     text-transform: uppercase;
     text-decoration: none;
-    color: white;
+    width: 120px;
 
     @media (max-width: 460px) {
         display: none;
@@ -51,7 +55,7 @@ const MenuButtonLine = styled.div`
     background-color: white;
 `;
 
-const Children = styled(Link)`
+const Children = styled.div`
     font-size: 1.5rem;
     text-transform: uppercase;
     text-decoration: none;

@@ -1,17 +1,18 @@
 import React from 'react';
 import Styled from './styles';
+import Logo from '../../basics/Logo/index';
 import PropTypes from 'prop-types'
 
 function Navbar (props) {
   return (
     <Styled.Navbar>
-      <Styled.MenuButton>
+      <Styled.MenuButton onClick={props.toggleDrawer}>
         <Styled.MenuButtonLine/>
         <Styled.MenuButtonLine/>
         <Styled.MenuButtonLine/>
       </Styled.MenuButton>
       <Styled.Brand to={'/'}>
-        {props.title}
+        <Logo />
       </Styled.Brand>
       <Styled.Children>
         {props.children}
@@ -21,11 +22,7 @@ function Navbar (props) {
 }
 
 Navbar.propTypes = {
-  title: PropTypes.string,
-}
-
-Navbar.defaultProps = {
-  title: 'Nearvice'
+  toggleDrawer: PropTypes.func
 }
 
 export default Navbar;

@@ -6,19 +6,20 @@ function NavbarButtons (props) {
   const { isAuth } = props;
 
   return (
-    <div>
-      {
-        !isAuth ?
-          <Styled.Link onClick={props.onLoginClick}>
+      !isAuth ?
+        <>
+          <Styled.Button tabIndex="0" onClick={props.onLoginClick}>
             Login
-          </Styled.Link>
-        :
-          <Styled.User>
-            <Styled.Avatar src={props.user.profilePicture} alt={props.user.name} />
-            {props.user.name}
-          </Styled.User>
-      }
-    </div>
+          </Styled.Button>
+          <Styled.MobileLink to={'/help'}>
+            Help
+          </Styled.MobileLink>
+        </>
+      :
+        <Styled.User>
+          <Styled.Avatar src={props.user.profilePicture} alt={props.user.name} />
+          {props.user.name}
+        </Styled.User>
   )
 }
 
@@ -28,7 +29,8 @@ NavbarButtons.defaultProps = {
 
 NavbarButtons.propTypes = {
   isAuth: PropTypes.bool,
-  user: PropTypes.object
+  user: PropTypes.object,
+  onLoginClick: PropTypes.func
 };
 
 export default NavbarButtons;
