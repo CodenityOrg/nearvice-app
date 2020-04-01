@@ -2,9 +2,15 @@ import React from 'react';
 import Styled from './styles';
 import LinkBase from '../../basics/LinkBase/index';
 import PropTypes from 'prop-types';
-import ToolBoxImage from './tool-box.png'
+import ToolBoxImage from './tool-box.png';
+
+import { useTranslation } from 'react-i18next';
 
 const SpecialistCTA = () => {
+  const { t } = useTranslation();
+  const titleMessage = t('navigation.specialistCTA.title');
+  const ctaMessage = t('navigation.specialistCTA.cta');
+  
   return (
     <Styled.Container>
       <div>
@@ -12,10 +18,10 @@ const SpecialistCTA = () => {
       </div>
       <div>
         <Styled.Title>
-          Are you a specialist?
+          {titleMessage}
         </Styled.Title>
         <LinkBase to={'/'}>
-          Start here
+          {ctaMessage}
         </LinkBase>
       </div>
     </Styled.Container>

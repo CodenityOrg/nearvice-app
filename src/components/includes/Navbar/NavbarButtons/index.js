@@ -2,8 +2,12 @@ import React from 'react';
 import Styled from './styles';
 import PropTypes from 'prop-types';
 
+import { useTranslation } from 'react-i18next';
+
 function NavbarButtons (props) {
   const { isAuth } = props;
+  const { t } = useTranslation();
+  const helpMessage = t('navigation.links.help');
 
   return (
       !isAuth ?
@@ -12,7 +16,7 @@ function NavbarButtons (props) {
             Login
           </Styled.Button>
           <Styled.MobileLink to={'/help'}>
-            Help
+            {helpMessage}
           </Styled.MobileLink>
         </>
       :
