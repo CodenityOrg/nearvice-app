@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import Login from './Login';
 import Logo from './Login/logo-login.png';
@@ -6,7 +6,7 @@ import Logo from './Login/logo-login.png';
 import Modal from 'react-modal';
 
 // TODO: Change default modal for nearvice custom modal
-export default () => {
+export default (props) => {
 
     const customStyles = {
         content : {
@@ -19,7 +19,7 @@ export default () => {
             transform             : 'translate(-50%, -50%)'
         }
     };
-
+/*
     const [modalIsOpen,setIsOpen] = useState(false);
     function openModal() {
         setIsOpen(true);
@@ -27,13 +27,13 @@ export default () => {
     
     function closeModal(){
         setIsOpen(false);
-    }
+    }*/
     return (
         <div>
-            <button onClick={openModal}>Open Modal</button>
+            {/*<button onClick={openModal}>Open Modal</button>*/}
             <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
+                isOpen={props.isOpen}
+                onRequestClose={props.closeModal}
                 style={customStyles}
                 contentLabel="Example Modal"
             >

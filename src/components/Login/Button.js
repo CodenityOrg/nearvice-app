@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import Button from '../basics/Button';
-
 export default styled.button`
     width: 100%;
     height: 54px;
