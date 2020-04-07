@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../logo.svg';
 import './Home.css';
 import { useTranslation } from 'react-i18next';
+import GoogleLogin from 'react-google-login';
 
 function Home () {
   const { t } = useTranslation();
@@ -27,10 +28,18 @@ function Home () {
       color: #61dafb;
     }
   `
+  const responseGoogle = (googleSession) => console.log(googleSession)
+
   return (
     <div className="Home">
       <AppHeader>
         <img src={logo} className="App-logo" alt="logo" />
+        <GoogleLogin
+            clientId={process.env.REACT_APP_LOCAL_GOOGLE_CLIENID}
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+        />
         <p>
           {tMessage}
         </p>
