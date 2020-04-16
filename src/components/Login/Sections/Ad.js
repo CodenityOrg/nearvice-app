@@ -8,7 +8,7 @@ export default styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #055E9D 0% 0% no-repeat padding-box;
+    background-color: #055E9D;
     
     @media (max-width: 768px) {
         display: none;
