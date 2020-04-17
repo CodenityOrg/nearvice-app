@@ -10,6 +10,8 @@ import ErrorMessage from './basics/ErrorMessage/index';
 import useBoolToggler from '../hooks/boolToggler';
 import useInputField from '../hooks/inputField';
 
+import { login } from '../api';
+
 // TODO: Change default modal for nearvice custom modal
 export default (props) => {
     const { isOpen } = props;
@@ -50,7 +52,10 @@ export default (props) => {
         emailInput.errorData.setHasErrorFalse();
         passwordInput.errorData.setHasErrorFalse();
         setErrorMessageFalse();
-        // TODO implement login
+        login(emailVal, passVal)
+            .then(resp => console.log(resp))
+            .catch(err => console.log(err));
+        // TODO: Redirect
     };
     
     return (
