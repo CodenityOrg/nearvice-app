@@ -14,15 +14,33 @@ import LoginModal from './components/LoginModal';
 import SideDrawer from './components/includes/SideDrawer/index.js';
 
 import useBoolToggler from './hooks/boolToggler';
+function useTraceUpdate (props) {
+  const prev = React.useRef(props);
+  React.useEffect(() => {
+    const changedProps = Object.entries(props).reduce((ps, [k, v]) => {
+      if (prev.current[k] !== v) {
+        ps[k] = [prev.current[k], v];
+      }
+      return ps;
+    }, {});
+    if (Object.keys(changedProps).length > 0) {
+      console.log('Changed props:', changedProps);
+    }
+    prev.current = props;
+  });
+}
 
-function App () {
-  const [isLoginVisible, handleLoginClick, handleLoginModalClose] = useBoolToggler();
+function App (props) {
 
-  const [isDrawerVisible, setIsDrawerVisible] = React.useState(false);
+  useTraceUpdate(props);
+  const [isLoginVisible, setLoginVisibleTrue, setLoginVisibleFalse] = useBoolToggler();
+  const [isRegisterVisible, setRegisterVisibleTrue, setRegisterVisibleFalse] = useBoolToggler();
+
+  const [isDrawerVisible, , , toggleIsDrawerVisible] = useBoolToggler();
 
   const toggleDrawerHandler = React.useCallback(() => {
-    setIsDrawerVisible(state => !state);
-  }, [setIsDrawerVisible]);
+    toggleIsDrawerVisible();
+  }, [toggleIsDrawerVisible]);
   
   return (
     <>
@@ -30,15 +48,17 @@ function App () {
         toggleDrawer={toggleDrawerHandler}
       >
         <NavbarButtons
-          onLoginClick={handleLoginClick}
+          onSignInClick={setLoginVisibleTrue}
+          onSignUpClick={setRegisterVisibleTrue}
         />
       </Navbar>
       <SideDrawer
         isOpen={isDrawerVisible}
         handleClose={toggleDrawerHandler}
-        onLoginClick={handleLoginClick}
+        onSignInClick={setLoginVisibleTrue}
+        onSignUpClick={setRegisterVisibleTrue}
       />
-      <LoginModal isOpen={isLoginVisible} closeModal={handleLoginModalClose} />
+      <LoginModal isOpen={isLoginVisible} closeModal={setLoginVisibleFalse} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/contact" component={Contact} />

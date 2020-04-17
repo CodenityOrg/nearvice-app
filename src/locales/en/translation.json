@@ -2,6 +2,7 @@
   "example.nestedMessage.identifier": "Edit src/App.js and save to reload",
 
   "navigation.links.help": "Help",
+  "navigation.links.contact": "Contact",
 
   "navigation.specialistCTA.title": "Are you a specialist?",
   "navigation.specialistCTA.cta": "Start here"

@@ -1,6 +1,7 @@
 
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import BREAKPOINTS from '../../../utils/breakpoints';
 
 const Navbar = styled.header`
     align-items: center;
@@ -9,10 +10,9 @@ const Navbar = styled.header`
     color: white;
     display: flex;
     height: 84px;
-    justify-content: space-between;
     padding: 16px 42px;
     
-    @media (max-width: 460px) {
+    @media (${BREAKPOINTS.MOBILE_ONLY}) {
         padding: 4px 24px;
         height: 66px;
     }
@@ -24,11 +24,10 @@ const Brand = styled(Link)`
     display: flex;
     height: 100%;
     justify-content: center;
-    text-transform: uppercase;
     text-decoration: none;
     width: 120px;
 
-    @media (max-width: 460px) {
+    @media (${BREAKPOINTS.MOBILE_ONLY}) {
         display: none;
     }
 `;
@@ -44,7 +43,7 @@ const MenuButton = styled.div`
     box-sizing: border-box;
     cursor: pointer;
 
-    @media (min-width: 461px) {
+    @media (${BREAKPOINTS.NOT_MOBILE}) {
         display: none;
     }
 `;
@@ -56,12 +55,15 @@ const MenuButtonLine = styled.div`
 `;
 
 const Children = styled.div`
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    text-decoration: none;
+    align-items: center;
     color: white;
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: flex-end;
+    text-decoration: none;
+    width: 100%;
 
-    @media (max-width: 460px) {
+    @media (${BREAKPOINTS.MOBILE_ONLY}) {
         display: none;
     }
 `;
