@@ -5,8 +5,25 @@ import Logo from './Login/logo-login.png';
 
 import Modal from 'react-modal';
 
+import ErrorMessage from './basics/ErrorMessage/index';
+
+import useBoolToggler from '../hooks/boolToggler';
+import useInputField from '../hooks/inputField';
+
 // TODO: Change default modal for nearvice custom modal
 export default (props) => {
+    const { isOpen } = props;
+    const [hasErrorMessage, setErrorMessageTrue, setErrorMessageFalse] = useBoolToggler();
+    const emailInput = useInputField('');
+    const passwordInput = useInputField('');
+
+    React.useEffect(() => {
+        if (!isOpen) {
+            setErrorMessageFalse();
+            emailInput.reset();
+            passwordInput.reset();
+        }
+    }, [isOpen]);
 
     const customStyles = {
         content : {
@@ -14,30 +31,42 @@ export default (props) => {
             left                  : '50%',
             right                 : 'auto',
             bottom                : 'auto',
-            marginRight           : '-50%',
             padding               : '0',
-            transform             : 'translate(-50%, -50%)'
+            transform             : 'translate(-50%, -50%)',
+            overflow              : 'visible'
         }
     };
-/*
-    const [modalIsOpen,setIsOpen] = useState(false);
-    function openModal() {
-        setIsOpen(true);
-    }
+
+    const handleLogin = () => {
+        const emailVal = emailInput.fieldData.value.trim();
+        const passVal = passwordInput.fieldData.value.trim();
+
+        if (!emailVal || !passVal) {
+            emailInput.errorData.checkError();
+            passwordInput.errorData.checkError();
+            setErrorMessageTrue();
+            return;
+        }
+        emailInput.errorData.setHasErrorFalse();
+        passwordInput.errorData.setHasErrorFalse();
+        setErrorMessageFalse();
+        // TODO implement login
+    };
     
-    function closeModal(){
-        setIsOpen(false);
-    }*/
     return (
-        <div>
-            {/*<button onClick={openModal}>Open Modal</button>*/}
+        <>
             <Modal
-                isOpen={props.isOpen}
+                isOpen={isOpen}
                 onRequestClose={props.closeModal}
                 style={customStyles}
                 contentLabel="Example Modal"
             >
                 <Login>
+                    <ErrorMessage
+                        show={hasErrorMessage}
+                        message="Something went wrong! Please try again more later"
+
+                    />
                     <Login.AdSection>
                         <Login.Image
                             width="150"
@@ -53,18 +82,18 @@ export default (props) => {
                             <Login.OAuthButton>Sign in with Google</Login.OAuthButton>
                         </Login.OAuth>
                         <Login.Signin>
-                            <Login.Input placeholder="Email" />
-                            <Login.Input placeholder="Password" />
+                            <Login.Input hasError={emailInput.errorData.value} {...emailInput.fieldData} placeholder="Email" />
+                            <Login.Input hasError={passwordInput.errorData.value} {...passwordInput.fieldData} type="password" placeholder="Password" />
                         </Login.Signin>
                         <Login.Button
                             as="a"
-                            href="#"
+                            onClick={handleLogin}
                         >
                             Login
                         </Login.Button>
                     </Login.LoginSection>
                 </Login>
             </Modal>
-        </div>
+        </>
     );
 };

@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 const baseStyles = `
-    background: #FDFDFD 0% 0% no-repeat padding-box;
+    background-color: #FDFDFD;
     box-shadow: 0px 10px 20px #0000001A;
     border-radius: 8px;
     opacity: 1;

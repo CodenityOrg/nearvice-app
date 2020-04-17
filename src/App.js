@@ -13,10 +13,10 @@ import NotFound from './pages/NotFound/NotFound';
 import LoginModal from './components/LoginModal';
 import SideDrawer from './components/includes/SideDrawer/index.js';
 
-import useLoginModalHook from './hooks/loginModalHook';
+import useBoolToggler from './hooks/boolToggler';
 
 function App () {
-  const [isLoginVisible, handleLoginClick, handleLoginModalClose] = useLoginModalHook();
+  const [isLoginVisible, handleLoginClick, handleLoginModalClose] = useBoolToggler();
 
   const [isDrawerVisible, setIsDrawerVisible] = React.useState(false);
 

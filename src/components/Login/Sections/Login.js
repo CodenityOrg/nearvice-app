@@ -5,5 +5,6 @@ export default styled.div`
     flex-direction: column;
     width: 310px;
     height: 332px;
-    background: #E9E9E9 0% 0% no-repeat padding-box;
+    background-color: #E9E9E9;
+    position: relative;
 `;
