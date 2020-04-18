@@ -15,14 +15,16 @@ import SideDrawer from './components/includes/SideDrawer/index.js';
 
 import useBoolToggler from './hooks/boolToggler';
 
-function App () {
-  const [isLoginVisible, handleLoginClick, handleLoginModalClose] = useBoolToggler();
+function App (props) {
 
-  const [isDrawerVisible, setIsDrawerVisible] = React.useState(false);
+  const [isLoginVisible, setLoginVisibleTrue, setLoginVisibleFalse] = useBoolToggler();
+  const [isRegisterVisible, setRegisterVisibleTrue, setRegisterVisibleFalse] = useBoolToggler();
+
+  const [isDrawerVisible, , , toggleIsDrawerVisible] = useBoolToggler();
 
   const toggleDrawerHandler = React.useCallback(() => {
-    setIsDrawerVisible(state => !state);
-  }, [setIsDrawerVisible]);
+    toggleIsDrawerVisible();
+  }, [toggleIsDrawerVisible]);
   
   return (
     <>
@@ -30,15 +32,17 @@ function App () {
         toggleDrawer={toggleDrawerHandler}
       >
         <NavbarButtons
-          onLoginClick={handleLoginClick}
+          onSignInClick={setLoginVisibleTrue}
+          onSignUpClick={setRegisterVisibleTrue}
         />
       </Navbar>
       <SideDrawer
         isOpen={isDrawerVisible}
         handleClose={toggleDrawerHandler}
-        onLoginClick={handleLoginClick}
+        onSignInClick={setLoginVisibleTrue}
+        onSignUpClick={setRegisterVisibleTrue}
       />
-      <LoginModal isOpen={isLoginVisible} closeModal={handleLoginModalClose} />
+      <LoginModal isOpen={isLoginVisible} closeModal={setLoginVisibleFalse} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/contact" component={Contact} />
