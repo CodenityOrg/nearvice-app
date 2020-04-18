@@ -27,7 +27,9 @@ const SideDrawer = (props) => {
         </Styled.Logo>
         <Styled.Nav tabIndex="0" ref={navRef}>
           <NavbarButtons
-            onLoginClick={props.onLoginClick}
+            vertical
+            onSignInClick={props.onSignInClick}
+            onSignUpClick={props.onSignUpClick}
             isAuth={props.isAuth}
           />
         </Styled.Nav>
@@ -46,7 +48,8 @@ SideDrawer.propTypes = {
   isAuth: PropTypes.bool,
   isOpen: PropTypes.bool,
   handleClose: PropTypes.func,
-  onLoginClick: PropTypes.func,
+  onSignInClick: PropTypes.func,
+  onSignUpClick: PropTypes.func,
   onSpecialistRegisterClick: PropTypes.func
 };
 

@@ -3,7 +3,7 @@ import React from 'react';
 import Login from './Login';
 import Logo from './Login/logo-login.png';
 
-import Modal from 'react-modal';
+import Modal from './basics/Modal';
 
 import ErrorMessage from './basics/ErrorMessage/index';
 
@@ -12,7 +12,6 @@ import useInputField from '../hooks/inputField';
 
 import { login } from '../api';
 
-// TODO: Change default modal for nearvice custom modal
 export default (props) => {
     const { isOpen } = props;
     const [hasErrorMessage, setErrorMessageTrue, setErrorMessageFalse] = useBoolToggler();
@@ -26,18 +25,6 @@ export default (props) => {
             passwordInput.reset();
         }
     }, [isOpen]);
-
-    const customStyles = {
-        content : {
-            top                   : '50%',
-            left                  : '50%',
-            right                 : 'auto',
-            bottom                : 'auto',
-            padding               : '0',
-            transform             : 'translate(-50%, -50%)',
-            overflow              : 'visible'
-        }
-    };
 
     const handleLogin = () => {
         const emailVal = emailInput.fieldData.value.trim();
@@ -63,8 +50,6 @@ export default (props) => {
             <Modal
                 isOpen={isOpen}
                 onRequestClose={props.closeModal}
-                style={customStyles}
-                contentLabel="Example Modal"
             >
                 <Login>
                     <ErrorMessage

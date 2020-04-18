@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import BREAKPOINTS from '../../../utils/breakpoints';
 
 const SideDrawer = styled.div`
     position: fixed;
@@ -14,8 +15,9 @@ const SideDrawer = styled.div`
     box-sizing: border-box;
     transition: transform .3s ease-out;
     transform: translateX(${props => props.isOpen ? '0' : '-100%'});
+    will-change: transform;
 
-    @media(min-width: 461px) {
+    @media(${BREAKPOINTS.NOT_MOBILE}) {
         display: none;
     }
 `;
@@ -31,7 +33,6 @@ const Logo = styled(Link)`
     height: 105px;
     justify-content: center;
     margin-bottom: 26px;
-    text-transform: uppercase;
     text-decoration: none;
 `;
 
