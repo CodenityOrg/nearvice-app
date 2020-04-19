@@ -1,7 +1,9 @@
 import { useState, useCallback } from 'react';
 import useBoolToggler from './boolToggler';
 
-export default (defaultValue) => {
+const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+export default (type = 'text', defaultValue = '') => {
   const [fieldValue, setFieldValue] = useState(defaultValue);
   const [hasError, setHasErrorTrue, setHasErrorFalse] = useBoolToggler();
 
@@ -17,15 +19,21 @@ export default (defaultValue) => {
   const checkError = useCallback(() => {
     if (!fieldValue.trim()) {
       setHasErrorTrue();
-    } else {
-      setHasErrorFalse();
+      return true;
     }
-  }, [fieldValue, setHasErrorTrue, setHasErrorFalse]);
+    if (type === 'email' && (!fieldValue.trim() || !emailRegexp.test(fieldValue))) {
+      setHasErrorTrue();
+      return true;
+    }
+    setHasErrorFalse();
+    return false;
+  }, [fieldValue, setHasErrorTrue, setHasErrorFalse, type]);
 
   return {
     fieldData: {
       value: fieldValue,
-      onChange: handleOnChange
+      onChange: handleOnChange,
+      type
     },
     errorData: {
       value: hasError,

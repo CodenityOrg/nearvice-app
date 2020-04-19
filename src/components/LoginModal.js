@@ -15,8 +15,8 @@ import { login } from '../api';
 export default (props) => {
     const { isOpen } = props;
     const [hasErrorMessage, setErrorMessageTrue, setErrorMessageFalse] = useBoolToggler();
-    const emailInput = useInputField('');
-    const passwordInput = useInputField('');
+    const emailInput = useInputField();
+    const passwordInput = useInputField('password');
 
     React.useEffect(() => {
         if (!isOpen) {
@@ -54,8 +54,8 @@ export default (props) => {
                 <Login>
                     <ErrorMessage
                         show={hasErrorMessage}
-                        message="Something went wrong! Please try again more later"
-
+                        message="Something went wrong! Please try again later"
+                        onClick={setErrorMessageFalse}
                     />
                     <Login.AdSection>
                         <Login.Image
@@ -73,7 +73,7 @@ export default (props) => {
                         </Login.OAuth>
                         <Login.Signin>
                             <Login.Input hasError={emailInput.errorData.value} {...emailInput.fieldData} placeholder="Email" />
-                            <Login.Input hasError={passwordInput.errorData.value} {...passwordInput.fieldData} type="password" placeholder="Password" />
+                            <Login.Input hasError={passwordInput.errorData.value} {...passwordInput.fieldData} placeholder="Password" />
                         </Login.Signin>
                         <Login.Button
                             as="a"

@@ -1,9 +1,25 @@
 {
   "example.nestedMessage.identifier": "Edita src/App.js y guarda para recargar",
+  
+  "error.default": "¡Algo salió mal! Por favor, intenta nuevamente más tarde.",
+  "error.validation": "Por favor, comprueba que los datos en los campos sean correctos.",
+
+  "form.placeholder.firstName": "Nombres",
+  "form.placeholder.lastName": "Apellidos",
+  "form.placeholder.address": "Dirección",
+  "form.placeholder.phone": "Teléfono",
+  "form.placeholder.email": "Email",
+  "form.placeholder.password": "Contraseña",
+  "form.placeholder.confirmPassword": "Confirmar Contraseña",
 
   "navigation.links.help": "Ayuda",
   "navigation.links.contact": "Contacto",
 
   "navigation.specialistCTA.title": "¿Eres un especialista?",
-  "navigation.specialistCTA.cta": "Comienza aquí"
+  "navigation.specialistCTA.cta": "Comienza aquí",
+
+  "register": "Registrar",
+
+  "registerModal.text.title": "¡Únete a nosotros!",
+  "registerModal.text.subtitle": "¡Contacta especialistas cercanos fácilmente!"
 }

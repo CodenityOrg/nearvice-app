@@ -7,11 +7,7 @@ import './Home.css';
 import { useTranslation } from 'react-i18next';
 import GoogleLogin from 'react-google-login';
 
-function Home () {
-  const { t } = useTranslation();
-  const tMessage = t('example.nestedMessage.identifier');
-
-  const AppHeader = styled.div`
+const AppHeader = styled.div`
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
@@ -27,7 +23,12 @@ function Home () {
     .App-link {
       color: #61dafb;
     }
-  `
+`
+
+function Home () {
+  const { t } = useTranslation();
+  const tMessage = t('example.nestedMessage.identifier');
+
   const responseGoogle = (googleSession) => console.log(googleSession)
 
   return (
