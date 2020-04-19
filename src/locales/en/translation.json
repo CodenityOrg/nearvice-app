@@ -1,9 +1,25 @@
 {
   "example.nestedMessage.identifier": "Edit src/App.js and save to reload",
+  
+  "error.default": "Something went wrong! Please try again later",
+  "error.validation": "Please, check that the fields are correct.",
+
+  "form.placeholder.firstName": "First Name",
+  "form.placeholder.lastName": "Last Name",
+  "form.placeholder.address": "Address",
+  "form.placeholder.phone": "Phone",
+  "form.placeholder.email": "Email",
+  "form.placeholder.password": "Password",
+  "form.placeholder.confirmPassword": "Confirm Password",
 
   "navigation.links.help": "Help",
   "navigation.links.contact": "Contact",
 
   "navigation.specialistCTA.title": "Are you a specialist?",
-  "navigation.specialistCTA.cta": "Start here"
+  "navigation.specialistCTA.cta": "Start here",
+
+  "register": "Register",
+
+  "registerModal.text.title": "Become one of us!",
+  "registerModal.text.subtitle": "Contact specialists around you easily!"
 }

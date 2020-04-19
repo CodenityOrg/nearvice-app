@@ -16,6 +16,7 @@ const baseStyles = `
     outline: none;
     background: white;
     border: none;
+    ${props => props.hasError && 'border: 1px solid red;'}
 `;
 
 export default {

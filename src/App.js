@@ -11,6 +11,7 @@ import Contact from './pages/Contact/Contact';
 import NotFound from './pages/NotFound/NotFound';
 
 import LoginModal from './components/LoginModal';
+import RegisterModal from './components/RegisterModal/index.js';
 import SideDrawer from './components/includes/SideDrawer/index.js';
 
 import useBoolToggler from './hooks/boolToggler';
@@ -42,6 +43,7 @@ function App (props) {
         onSignInClick={setLoginVisibleTrue}
         onSignUpClick={setRegisterVisibleTrue}
       />
+      <RegisterModal isOpen={isRegisterVisible} closeModal={setRegisterVisibleFalse} />
       <LoginModal isOpen={isLoginVisible} closeModal={setLoginVisibleFalse} />
       <Switch>
         <Route exact path="/" component={Home} />
