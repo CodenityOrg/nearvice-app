@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import rootReducer from './store/reducers';
+import { createStore } from 'redux';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -11,17 +15,21 @@ const userConfirmation = (message, callback) => {
   // this is the default behavior
   const allowTransition = window.confirm(message);
   callback(allowTransition);
-}
+};
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
-  <BrowserRouter
-    basename={'/'}
-    forceRefresh={false}
-    getUserConfirmation={(message, callback) => userConfirmation(message, callback)}
-    keyLength={6}
-  >
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter
+      basename={'/'}
+      forceRefresh={false}
+      getUserConfirmation={(message, callback) => userConfirmation(message, callback)}
+      keyLength={6}
+    >
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
