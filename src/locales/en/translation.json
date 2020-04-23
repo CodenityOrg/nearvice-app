@@ -1,6 +1,6 @@
 {
   "example.nestedMessage.identifier": "Edit src/App.js and save to reload",
-
+  
   "error.default": "Something went wrong! Please try again later",
   "error.validation": "Please, check that the fields are correct.",
 
@@ -21,8 +21,5 @@
   "register": "Register",
 
   "registerModal.text.title": "Become one of us!",
-  "registerModal.text.subtitle": "Contact specialists around you easily!",
-
-  "login": "Login",
-  "login.slogan": "Let's find the best specialist for you"
+  "registerModal.text.subtitle": "Contact specialists around you easily!"
 }
