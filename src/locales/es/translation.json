@@ -1,6 +1,6 @@
 {
   "example.nestedMessage.identifier": "Edita src/App.js y guarda para recargar",
-
+  
   "error.default": "¡Algo salió mal! Por favor, intenta nuevamente más tarde.",
   "error.validation": "Por favor, comprueba que los datos en los campos sean correctos.",
 
@@ -21,8 +21,5 @@
   "register": "Registrar",
 
   "registerModal.text.title": "¡Únete a nosotros!",
-  "registerModal.text.subtitle": "¡Contacta especialistas cercanos fácilmente!",
-
-  "login": "Iniciar sesión",
-  "login.slogan": "Buscamos los mejores especialistas para ti"
+  "registerModal.text.subtitle": "¡Contacta especialistas cercanos fácilmente!"
 }
