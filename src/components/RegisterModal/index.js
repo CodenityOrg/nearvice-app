@@ -11,6 +11,15 @@ import { useTranslation } from 'react-i18next';
 
 const image = require('./register.png');
 
+const getPlaceholderTranslations = t => {
+  const inputsName = ['firstName', 'lastName', 'phone', 'address', 'email', 'password', 'confirmPassword'];
+  const placeholders = {};
+  for (const inputName of inputsName) {
+    placeholders[inputName] = t(`form.placeholder.${inputName}`)
+  }
+  return placeholders;
+}
+
 export default (props) => {
   const { isOpen } = props;
   const firstNameInput = useInputField();
@@ -28,15 +37,9 @@ export default (props) => {
   const errorMessage = t('error.validation');
   const title = t('registerModal.text.title');
   const subtitle = t('registerModal.text.subtitle');
-  const firstNamePlaceholder = t('form.placeholder.firstName');
-  const lastNamePlaceholder = t('form.placeholder.lastName');
-  const phonePlaceholder = t('form.placeholder.phone');
-  const addressPlaceholder = t('form.placeholder.address');
-  const emailPlaceholder = t('form.placeholder.email');
-  const passwordPlaceholder = t('form.placeholder.password');
-  const confirmPasswordPlaceholder = t('form.placeholder.confirmPassword');
-
   const registerText = t('register');
+
+  const placeholders = getPlaceholderTranslations(t);
 
   React.useEffect(() => {
     if (!isOpen) {
@@ -115,37 +118,37 @@ export default (props) => {
                 <Styled.Input
                   {...firstNameInput.fieldData}
                   hasError={firstNameInput.errorData.value}
-                  placeholder={firstNamePlaceholder}
+                  placeholder={placeholders.firstName}
                 />
                 <Styled.Input
                   {...lastNameInput.fieldData}
                   hasError={lastNameInput.errorData.value}
-                  placeholder={lastNamePlaceholder}
+                  placeholder={placeholders.lastName}
                 />
                 <Styled.Input
                   {...phoneInput.fieldData}
                   hasError={phoneInput.errorData.value}
-                  placeholder={phonePlaceholder}
+                  placeholder={placeholders.phone}
                 />
                 <Styled.Input
                   {...addressInput.fieldData}
                   hasError={addressInput.errorData.value}
-                  placeholder={addressPlaceholder}
+                  placeholder={placeholders.address}
                 />
                 <Styled.Input
                   {...emailInput.fieldData}
                   hasError={emailInput.errorData.value}
-                  placeholder={emailPlaceholder}
+                  placeholder={placeholders.email}
                 />
                 <Styled.Input
                   {...passwordInput.fieldData}
                   hasError={passwordInput.errorData.value}
-                  placeholder={passwordPlaceholder}
+                  placeholder={placeholders.password}
                 />
                 <Styled.Input
                   {...confirmPasswordInput.fieldData}
                   hasError={confirmPasswordInput.errorData.value}
-                  placeholder={confirmPasswordPlaceholder}
+                  placeholder={placeholders.confirmPassword}
                 />
               </Styled.InputContainer>
               <Styled.Button type="submit">{registerText}</Styled.Button>
