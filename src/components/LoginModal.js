@@ -10,7 +10,8 @@ import ErrorMessage from './basics/ErrorMessage/index';
 import useBoolToggler from '../hooks/boolToggler';
 import useInputField from '../hooks/inputField';
 
-import { login } from '../api';
+import { login,loginbyGoogle } from '../api';
+import GoogleLogin from 'react-google-login';
 
 export default (props) => {
     const { isOpen } = props;
@@ -45,6 +46,13 @@ export default (props) => {
         // TODO: Redirect
     };
     
+    const responseGoogle = async (googleSession) => {
+        try {
+            const {status, data} = await loginbyGoogle(googleSession.tokenId);
+            if (status === 200) console.log(data)
+        } catch (e) {console.log(e.message)}
+    }
+
     return (
         <>
             <Modal
@@ -69,7 +77,20 @@ export default (props) => {
                     <Login.LoginSection>
                         <Login.OAuth>
                             <Login.OAuthButton>Log in with Facebook</Login.OAuthButton>
-                            <Login.OAuthButton>Sign in with Google</Login.OAuthButton>
+                            <GoogleLogin
+                                clientId={process.env.REACT_APP_LOCAL_GOOGLE_CLIENID}
+                                onSuccess={responseGoogle}
+                                onFailure={setErrorMessageTrue}
+                                cookiePolicy={'single_host_origin'}
+                                render={renderProps => (
+                                    <Login.OAuthButton
+                                      onClick={renderProps.onClick}
+                                      disabled={renderProps.disabled}
+                                    >
+                                     Sign in with Google
+                                    </Login.OAuthButton>
+                                  )}
+                            />
                         </Login.OAuth>
                         <Login.Signin>
                             <Login.Input hasError={emailInput.errorData.value} {...emailInput.fieldData} placeholder="Email" />
