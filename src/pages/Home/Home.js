@@ -44,6 +44,7 @@ function Home () {
         <p>
           {tMessage}
         </p>
+        <p>TEST MESSAGE</p>
         <Link
           className="App-link"
           to="/contact"
