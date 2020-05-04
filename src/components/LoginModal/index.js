@@ -9,7 +9,7 @@ import Modal from '../basics/Modal';
 
 import ErrorMessage from '../basics/ErrorMessage/index';
 
-import { login, loginbyGoogle } from '../api';
+import { login, loginbyGoogle } from '../../api';
 import GoogleLogin from 'react-google-login';
 import useBoolToggler from '../../hooks/boolToggler';
 import useInputField from '../../hooks/inputField';
