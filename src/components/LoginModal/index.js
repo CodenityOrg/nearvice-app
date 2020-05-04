@@ -1,23 +1,40 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import Login from './Login';
-import Logo from './Login/logo-login.png';
 
-import Modal from './basics/Modal';
+import Login from '../Login';
+import Logo from '../Login/logo-login.png';
 
-import ErrorMessage from './basics/ErrorMessage/index';
+import Modal from '../basics/Modal';
 
-import useBoolToggler from '../hooks/boolToggler';
-import useInputField from '../hooks/inputField';
+import ErrorMessage from '../basics/ErrorMessage/index';
 
-import { login,loginbyGoogle } from '../api';
+import { login, loginbyGoogle } from '../api';
 import GoogleLogin from 'react-google-login';
+import useBoolToggler from '../../hooks/boolToggler';
+import useInputField from '../../hooks/inputField';
+
+const getPlaceholderTranslations = t => {
+    const inputsName = ['email', 'password'];
+    const placeholders = {};
+    for (const inputName of inputsName) {
+        placeholders[inputName] = t(`form.placeholder.${inputName}`)
+    }
+    return placeholders;
+};
 
 export default (props) => {
     const { isOpen } = props;
+    const { t } = useTranslation();
+
     const [hasErrorMessage, setErrorMessageTrue, setErrorMessageFalse] = useBoolToggler();
     const emailInput = useInputField();
     const passwordInput = useInputField('password');
+
+    const loginText = t('login');
+    const slogan = t('login.slogan');
+    const errorMessage = t('error.validation');
+    const placeholders = getPlaceholderTranslations(t);
 
     React.useEffect(() => {
         if (!isOpen) {
@@ -62,7 +79,7 @@ export default (props) => {
                 <Login>
                     <ErrorMessage
                         show={hasErrorMessage}
-                        message="Something went wrong! Please try again later"
+                        message={errorMessage}
                         onClick={setErrorMessageFalse}
                     />
                     <Login.AdSection>
@@ -71,7 +88,7 @@ export default (props) => {
                             src={Logo}
                         />
                         <Login.Text>
-                            Let's find the best specialist for you
+                            {slogan}
                         </Login.Text>
                     </Login.AdSection>
                     <Login.LoginSection>
@@ -93,14 +110,14 @@ export default (props) => {
                             />
                         </Login.OAuth>
                         <Login.Signin>
-                            <Login.Input hasError={emailInput.errorData.value} {...emailInput.fieldData} placeholder="Email" />
-                            <Login.Input hasError={passwordInput.errorData.value} {...passwordInput.fieldData} placeholder="Password" />
+                            <Login.Input hasError={emailInput.errorData.value} {...emailInput.fieldData} placeholder={placeholders.email} />
+                            <Login.Input hasError={passwordInput.errorData.value} {...passwordInput.fieldData} placeholder={placeholders.password} />
                         </Login.Signin>
                         <Login.Button
                             as="a"
                             onClick={handleLogin}
                         >
-                            Login
+                            {loginText}
                         </Login.Button>
                     </Login.LoginSection>
                 </Login>

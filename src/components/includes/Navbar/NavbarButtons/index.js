@@ -32,7 +32,7 @@ function NavbarButtons (props) {
         </>
       :
         <Styled.User>
-          <Styled.Avatar src={props.user.profilePicture} alt={props.user.name} />
+          <Styled.Avatar data-testid="user-avatar" src={props.user.profilePicture} alt={props.user.name} />
           {props.user.name}
         </Styled.User>
       }
