@@ -24,5 +24,8 @@
   "registerModal.text.subtitle": "¡Contacta especialistas cercanos fácilmente!",
 
   "login": "Iniciar sesión",
-  "login.slogan": "Buscamos los mejores especialistas para ti"
+  "login.slogan": "Buscamos los mejores especialistas para ti",
+
+  "Signin.Facebook": "Iniciar sesión con Facebook",
+  "Signin.Google": "Iniciar sesión con Google"
 }
