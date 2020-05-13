@@ -1,10 +1,13 @@
 language: node_js
 node_js:
     - "13"
+before_install:
+    - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 install:
     - yarn
 script:
     - yarn test 
+    - bash conf/build.sh
 services:
     - docker
 deploy:
