@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e # Stop script from running if there are any errors
 
-# Log in to Docker Hub and push
-echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+IMAGE="codenity/nearvice-app"                             # Docker image
+GIT_VERSION=$(git rev-parse --abbrev-ref HEAD) # Git hash and tags
+
 docker push ${IMAGE}:${GIT_VERSION}
