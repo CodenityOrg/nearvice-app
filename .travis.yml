@@ -9,6 +9,6 @@ services:
     - docker
 deploy:
     provider: script
-    script: conf/deploy.sh
+    script: bash conf/deploy.sh
     on:
         branch: dev
