@@ -2,9 +2,13 @@ language: node_js
 node_js:
     - "13"
 install:
-    yarn 
+    - yarn
+script:
+    - yarn test 
 services:
     - docker
 deploy:
     provider: script
     script: conf/deploy.sh
+    on:
+        branch: dev
