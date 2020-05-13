@@ -1,0 +1,6 @@
+language: javascript
+services:
+    - docker
+deploy:
+    provider: script
+    script: conf/deploy.sh
