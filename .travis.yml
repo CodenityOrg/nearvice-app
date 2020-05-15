@@ -1,17 +1,19 @@
 language: node_js
 node_js:
-    - "13"
+- '13'
 before_install:
-    - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+- openssl aes-256-cbc -K $encrypted_92725ca94bf5_key -iv $encrypted_92725ca94bf5_iv
+  -in deploy-key.enc -out deploy-key -d
+- echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 install:
-    - yarn
+- yarn
 script:
-    - yarn test 
-    - bash conf/build.sh
+- yarn test
+- bash conf/build.sh
 services:
-    - docker
+- docker
 deploy:
-    provider: script
-    script: bash conf/deploy.sh
-    on:
-        branch: dev
+  provider: script
+  script: bash conf/deploy.sh
+  on:
+    branch: dev
