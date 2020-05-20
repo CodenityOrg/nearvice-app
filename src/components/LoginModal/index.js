@@ -46,7 +46,7 @@ export default (props) => {
             emailInput.reset();
             passwordInput.reset();
         }
-    }, [emailInput, isOpen, passwordInput, setErrorMessageFalse]);
+    }, [isOpen]);
 
     const handleLogin = () => {
         const emailVal = emailInput.fieldData.value.trim();
