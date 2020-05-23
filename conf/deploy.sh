@@ -5,4 +5,4 @@ IMAGE="codenity/nearvice-app"                             # Docker image
 
 docker push ${IMAGE}:dev
 
-ssh root@138.197.195.221 \ 'source ~/.zshrc; cd scripts; bash nearvice-api-deploy.sh'
+ssh -o StrictHostKeyChecking=no root@138.197.195.221 \ 'source ~/.zshrc; cd scripts; bash nearvice-api-deploy.sh'
