@@ -13,6 +13,8 @@ import { login, loginbyGoogle } from '../../api';
 import GoogleLogin from 'react-google-login';
 import useBoolToggler from '../../hooks/boolToggler';
 import useInputField from '../../hooks/inputField';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+
 
 const getPlaceholderTranslations = t => {
     const inputsName = ['email', 'password'];
@@ -34,6 +36,8 @@ export default (props) => {
     const loginText = t('login');
     const slogan = t('login.slogan');
     const errorMessage = t('error.validation');
+    const signInFb = t('Signin.Facebook');
+    const signInGoogle = t('Signin.Google');
     const placeholders = getPlaceholderTranslations(t);
 
     React.useEffect(() => {
@@ -69,6 +73,10 @@ export default (props) => {
             if (status === 200) console.log(data)
         } catch (e) {console.log(e.message)}
     }
+    const responseFacebook = (response) => {
+         console.log(response);
+    }
+ 
 
     return (
         <>
@@ -93,7 +101,17 @@ export default (props) => {
                     </Login.AdSection>
                     <Login.LoginSection>
                         <Login.OAuth>
-                            <Login.OAuthButton>Log in with Facebook</Login.OAuthButton>
+                            <FacebookLogin
+                                appId={process.env.REACT_APP_DEV_FACEBOOK}
+                                autoLoad={false}
+                                callback={responseFacebook}
+                                render={renderProps => (
+                                     <Login.OAuthButton
+                                     onClick={renderProps.onClick}>
+                                         {signInFb}
+                                      </Login.OAuthButton>
+                                )}
+                            />
                             <GoogleLogin
                                 clientId={process.env.REACT_APP_LOCAL_GOOGLE_CLIENID}
                                 onSuccess={responseGoogle}
@@ -102,9 +120,9 @@ export default (props) => {
                                 render={renderProps => (
                                     <Login.OAuthButton
                                       onClick={renderProps.onClick}
-                                      disabled={renderProps.disabled}
+                                      disabled={renderProps.disabled} 
                                     >
-                                     Sign in with Google
+                                        {signInGoogle}
                                     </Login.OAuthButton>
                                   )}
                             />
