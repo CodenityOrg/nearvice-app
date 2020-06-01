@@ -66,6 +66,43 @@ You can get in touch with **Codenity** community in the following ways:
 - Open a GitHub issue in this repository.
 - Email the maintainers at codenity.org@gmail.com.
 
+## 👨‍💻 Contributors
+
+<table>
+<tbody>
+<tr align="center">
+      <td>
+      <img src="https://avatars0.githubusercontent.com/u/8053607?v=4" alt="Angel Rodriguez Romero icon"  width="75px" height="75px">
+      <p><a href="https://github.com/AngelRodRo">AngelRodRo</a></p>
+      </td>
+      <td>
+      <img src="https://avatars2.githubusercontent.com/u/15824340?v=4" alt="Florencia Peretti icon"  width="75px" height="75px">
+      <p><a href="https://github.com/florenperetti">florenperetti</a></p>
+      </td>
+      <td>
+      <img src="https://avatars3.githubusercontent.com/u/20257402?v=4" alt="Cristian Peralta Segura icon"  width="75px" height="75px">
+      <p><a href="https://github.com/CristianPeralta">CristianPeralta</a></p>
+      </td>
+      <td>
+      <img src="https://avatars0.githubusercontent.com/u/16390950?v=4" alt="Richard Saavedra icon"  width="75px" height="75px">
+      <p><a href="https://github.com/richardcmg7">richardcmg7</a></p>
+      </td>
+      <td>
+      <img src="https://avatars3.githubusercontent.com/u/4450998?v=4" alt="Victor Manuel Diaz De La Gasca icon"  width="75px" height="75px">
+      <p><a href="https://github.com/vickoman">vickoman</a></p>
+      </td>
+      <td>
+      <img src="https://avatars0.githubusercontent.com/u/8761785?v=4" alt="Alvaro Sacari Alanoca icon"  width="75px" height="75px">
+      <p><a href="https://github.com/alvarosacari">alvarosacari</a></p>
+      </td>
+      <td>
+      <img src="https://avatars1.githubusercontent.com/u/29113089?v=4" alt="Angel Choque icon"  width="75px" height="75px">
+      <p><a href="https://github.com/angelc37">angelc37</a></p>
+      </td>
+</tr>
+</tbody>
+</table>
+
 ## 📄 License
 
 Nearvice is MIT licensed, as found in the [LICENSE][l] file.
