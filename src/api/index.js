@@ -1,4 +1,5 @@
 export {
     login,
-    loginbyGoogle
+    loginbyGoogle,
+    register,
 } from './auth';
