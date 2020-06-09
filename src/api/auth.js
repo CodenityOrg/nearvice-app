@@ -5,3 +5,6 @@ export const login = (email, password, keepMe=false) =>
 
 export const loginbyGoogle = (token) =>
     axios.post('/users/google', { token });
+
+export const register = data => 
+    axios.post('/users/register', data);

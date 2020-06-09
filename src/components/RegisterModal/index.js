@@ -9,10 +9,12 @@ import useInputField from '../../hooks/inputField';
 
 import { useTranslation } from 'react-i18next';
 
+import { register } from '../../api';
+
 const image = require('./register.png');
 
 const getPlaceholderTranslations = t => {
-  const inputsName = ['firstName', 'lastName', 'phone', 'address', 'email', 'password', 'confirmPassword'];
+  const inputsName = ['firstName', 'lastName', 'phone', 'country', 'city', 'email', 'password', 'confirmPassword'];
   const placeholders = {};
   for (const inputName of inputsName) {
     placeholders[inputName] = t(`form.placeholder.${inputName}`)
@@ -25,7 +27,8 @@ export default (props) => {
   const firstNameInput = useInputField();
   const lastNameInput = useInputField();
   const phoneInput = useInputField();
-  const addressInput = useInputField();
+  const countryInput = useInputField();
+  const cityInput = useInputField();
   const emailInput = useInputField('email');
   const passwordInput = useInputField('password');
   const confirmPasswordInput = useInputField('password');
@@ -46,7 +49,8 @@ export default (props) => {
       firstNameInput.reset();
       lastNameInput.reset();
       phoneInput.reset();
-      addressInput.reset();
+      countryInput.reset();
+      cityInput.reset();
       emailInput.reset();
       passwordInput.reset();
       confirmPasswordInput.reset();
@@ -58,38 +62,55 @@ export default (props) => {
     event.preventDefault();
     const firstNameInputHasError = firstNameInput.errorData.checkError();
     const lastNameInputHasError = lastNameInput.errorData.checkError();
-    const addressInputHasError = addressInput.errorData.checkError();
     const emailInputHasError = emailInput.errorData.checkError();
     const passwordInputHasError = passwordInput.errorData.checkError();
     const confirmPasswordInputHasError = confirmPasswordInput.errorData.checkError();
     const passwordMissmatch = passwordInputHasError
       || confirmPasswordInputHasError
       || passwordInput.fieldData.value !== confirmPasswordInput.fieldData.value;
-
     if (
       firstNameInputHasError ||
       lastNameInputHasError ||
-      addressInputHasError ||
       emailInputHasError ||
       passwordInputHasError ||
       confirmPasswordInputHasError ||
       passwordMissmatch
     ) {
-      if (passwordMissmatch) {
-        passwordInput.errorData.setHasErrorTrue();
-        confirmPasswordInput.errorData.setHasErrorTrue();
-      }
-      setErrorMessageTrue();
+      setErrorMessageFalse();
+      firstNameInput.errorData.setHasErrorFalse();
+      lastNameInput.errorData.setHasErrorFalse();
+      countryInput.errorData.setHasErrorFalse();
+      cityInput.errorData.setHasErrorFalse();
+      emailInput.errorData.setHasErrorFalse();
+      passwordInput.errorData.setHasErrorFalse();
+      confirmPasswordInput.errorData.setHasErrorFalse();
       return;
     }
-    setErrorMessageFalse();
-    firstNameInput.errorData.setHasErrorFalse();
-    lastNameInput.errorData.setHasErrorFalse();
-    addressInput.errorData.setHasErrorFalse();
-    emailInput.errorData.setHasErrorFalse();
-    passwordInput.errorData.setHasErrorFalse();
-    confirmPasswordInput.errorData.setHasErrorFalse();
-    // TODO: register
+    if (passwordMissmatch) {
+      passwordInput.errorData.setHasErrorTrue();
+      confirmPasswordInput.errorData.setHasErrorTrue();
+    }
+    const name = firstNameInput.fieldData.value.trim();
+    const lastname = lastNameInput.fieldData.value.trim();
+    const phone = phoneInput.fieldData.value.trim();
+    const country = countryInput.fieldData.value.trim();
+    const city = cityInput.fieldData.value.trim();
+    const email = emailInput.fieldData.value.trim();
+    const password = passwordInput.fieldData.value.trim();
+
+    setErrorMessageTrue();
+    const data = {
+      name,
+      lastname,
+      phone,
+      country,
+      city,
+      email,
+      password,
+    };
+    register(data)
+      .then(resp => console.log(resp))
+      .catch(err => console.log(err));
   };
   return (
     <>
@@ -131,9 +152,14 @@ export default (props) => {
                   placeholder={placeholders.phone}
                 />
                 <Styled.Input
-                  {...addressInput.fieldData}
-                  hasError={addressInput.errorData.value}
-                  placeholder={placeholders.address}
+                  {...countryInput.fieldData}
+                  hasError={countryInput.errorData.value}
+                  placeholder={placeholders.country}
+                />
+                <Styled.Input
+                  {...cityInput.fieldData}
+                  hasError={cityInput.errorData.value}
+                  placeholder={placeholders.city}
                 />
                 <Styled.Input
                   {...emailInput.fieldData}
