@@ -46,6 +46,7 @@ NavbarButtons.defaultProps = {
 }
 
 NavbarButtons.propTypes = {
+  vertical: PropTypes.bool,
   isAuth: PropTypes.bool,
   user: PropTypes.object,
   onSignInClick: PropTypes.func,
