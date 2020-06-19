@@ -1,10 +1,12 @@
 import React from 'react';
 import Styled from './styles';
 
-export default props => {
+const Input = props => {
     return <Styled.Input 
         {
             ...props
         }
     />;
 };
+
+export default Input;
