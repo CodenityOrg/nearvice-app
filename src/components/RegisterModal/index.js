@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import Modal from '../basics/Modal';
 import ErrorMessage from '../basics/ErrorMessage/index';
 import Styled from './styles';
@@ -22,7 +24,7 @@ const getPlaceholderTranslations = t => {
   return placeholders;
 }
 
-export default (props) => {
+const RegisterModal = (props) => {
   const { isOpen } = props;
   const firstNameInput = useInputField();
   const lastNameInput = useInputField();
@@ -185,3 +187,10 @@ export default (props) => {
     </>
   );
 };
+
+RegisterModal.propTypes = {
+  isOpen: PropTypes.bool,
+  closeModal: PropTypes.func,
+};
+
+export default RegisterModal;
