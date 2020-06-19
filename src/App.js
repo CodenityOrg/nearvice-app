@@ -16,7 +16,7 @@ import SideDrawer from './components/includes/SideDrawer/index.js';
 
 import useBoolToggler from './hooks/boolToggler';
 
-function App (props) {
+function App () {
 
   const [isLoginVisible, setLoginVisibleTrue, setLoginVisibleFalse] = useBoolToggler();
   const [isRegisterVisible, setRegisterVisibleTrue, setRegisterVisibleFalse] = useBoolToggler();
