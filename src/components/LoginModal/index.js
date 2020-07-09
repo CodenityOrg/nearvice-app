@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import PropTypes from 'prop-types';
 
 import Login from '../Login';
 import Logo from '../Login/logo-login.png';
@@ -23,7 +24,7 @@ const getPlaceholderTranslations = t => {
     return placeholders;
 };
 
-export default (props) => {
+const LoginModal = (props) => {
     const { isOpen } = props;
     const { t } = useTranslation();
 
@@ -125,3 +126,10 @@ export default (props) => {
         </>
     );
 };
+
+LoginModal.propTypes = {
+    isOpen: PropTypes.bool,
+    closeModal: PropTypes.func,
+};
+
+export default LoginModal;

@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import PropTypes from 'prop-types';
+
 
 ReactModal.setAppElement('#root')
 
@@ -29,5 +31,9 @@ const Modal = props => (
     {...props}
   >{props.children}</ReactModal>
 );
+
+Modal.propTypes = {
+  children: PropTypes.element,
+};
 
 export default Modal;

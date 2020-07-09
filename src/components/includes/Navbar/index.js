@@ -22,6 +22,7 @@ function Navbar (props) {
 }
 
 Navbar.propTypes = {
+  children: PropTypes.element,
   toggleDrawer: PropTypes.func
 }
 
